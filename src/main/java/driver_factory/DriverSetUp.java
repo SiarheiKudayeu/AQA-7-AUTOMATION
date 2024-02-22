@@ -12,11 +12,10 @@ public class DriverSetUp {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
+        options.addArguments("disable-gpu");
+        //options.addArguments("--incognito");
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(20));
         return driver;
     }
 }

@@ -42,6 +42,7 @@ public class Final {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = DriverSetUp.setUpDriver();
         driver.get(Urls.loginPage);
+        Thread.sleep(2500);
         acceptCookies(driver);
         sendKeys(driver, Data.invalidMail, Locators.email);
         sendKeys(driver, Data.invalidPass, Locators.password);
