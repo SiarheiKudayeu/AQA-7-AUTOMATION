@@ -13,20 +13,33 @@ import java.io.IOException;
 
 public class MyTestListeners implements ITestListener {
 
-    public static void makeScreenshot(String method){
+    public static void makeScreenshot(String method) {
         File screenshotFile = ((TakesScreenshot) DriverSetUp3.startDriver()).getScreenshotAs(OutputType.FILE);
-        try{
-            FileUtils.copyFile(screenshotFile, new File("./target/screenshots/" + method + ".png"));
-        } catch (IOException e){
+        try {
+            FileUtils.copyFile(screenshotFile, new File("./target/screenshots_negative/" + method + ".png"));
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
+    public static void makeScreenshotPositive(String method) {
+        File screenshotFile = ((TakesScreenshot) DriverSetUp3.startDriver()).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshotFile, new File("./target/screenshots_positive/" + method + ".png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     @Override
     public void onTestStart(ITestResult result) {
         System.out.println("Test with name " + result.getMethod().getMethodName() + " started!!!");
     }
+
     @Override
     public void onTestFailure(ITestResult result) {
         makeScreenshot(result.getMethod().getMethodName());
     }
+
+    @Override
+    public void onTestSuccess(org.testng.ITestResult result) { makeScreenshotPositive(result.getMethod().getMethodName()); }
 }
