@@ -2,7 +2,6 @@ package lesson7.waiters;
 
 import driver_factory.DriverSetUp;
 import lesson7.custom_waiter_class.CustomWaiterClass;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

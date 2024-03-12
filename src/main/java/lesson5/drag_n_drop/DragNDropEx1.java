@@ -1,7 +1,6 @@
 package lesson5.drag_n_drop;
 
 import driver_factory.DriverSetUp;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
